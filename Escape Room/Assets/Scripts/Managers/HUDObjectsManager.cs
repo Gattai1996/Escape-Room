@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class HUDObjectsManager : MonoBehaviour
 {
+    protected abstract Event OnDesactivateEvent { get; }
     private List<GameObject> _objectsList = new List<GameObject>();
     private GameObject _activeObject;
     public bool HaveObjectActive { 
@@ -17,11 +18,24 @@ public abstract class HUDObjectsManager : MonoBehaviour
         } 
     }
 
+    private void Update()
+    {
+        CheckInput();
+    }
+
     protected void SetupList()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
             _objectsList.Add(transform.GetChild(i).gameObject);
+        }
+    }
+
+    private void CheckInput()
+    {
+        if (HaveObjectActive && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space)))
+        {
+            SetObjectToDesactive();
         }
     }
 
@@ -32,12 +46,10 @@ public abstract class HUDObjectsManager : MonoBehaviour
         _activeObject = objectToActive;
     }
 
-    private void Update()
+    public virtual void SetObjectToDesactive()
     {
-        if (HaveObjectActive && Input.GetKeyDown(KeyCode.Escape))
-        {
-            _activeObject.SetActive(false);
-            _activeObject = null;
-        }
+        _activeObject.SetActive(false);
+        _activeObject = null;
+        OnDesactivateEvent.TriggerEvent();
     }
 }

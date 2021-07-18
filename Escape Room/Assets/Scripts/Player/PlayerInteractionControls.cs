@@ -53,7 +53,7 @@ public class PlayerInteractionControls : MonoBehaviour
                 }
             case InteractionType.Read:
                 {
-                    if (!PapersManager.Singleton.HaveObjectActive && Input.GetKeyDown(interactKey))
+                    if (!ReadablesManager.Singleton.HaveObjectActive && Input.GetKeyDown(interactKey))
                     {
                         interactable.Interact();
                     }

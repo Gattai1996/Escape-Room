@@ -310,9 +310,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 235843077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0c9d31cdd2a53b48bbf84c6edb9e8a9, type: 3}
+  m_Script: {fileID: 11500000, guid: ec7ed002f134bc94d81296c06742c2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitedOfReadableEvent: {fileID: 11400000, guid: 0f650a22a6d00a849874f2742c12106f, type: 2}
 --- !u!1 &280848968
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +484,123 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &579478742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3485560793483219545, guid: d2245adf5fb2de7469c62ebae270cbb1, type: 3}
+  m_PrefabInstance: {fileID: 3485560793425581822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &579478743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579478742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 56624fb98c945ef4fac6b47dbcea306b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3485560793425581823}
+        m_TargetAssemblyTypeName: PlayerMovementControls, Assembly-CSharp
+        m_MethodName: ActivateMovements
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &579478744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579478742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 974daaf8f525e2d499f4ff88725e08b0, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3485560793425581823}
+        m_TargetAssemblyTypeName: PlayerMovementControls, Assembly-CSharp
+        m_MethodName: DesativateMovements
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &579478745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579478742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0f650a22a6d00a849874f2742c12106f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3485560793425581823}
+        m_TargetAssemblyTypeName: PlayerMovementControls, Assembly-CSharp
+        m_MethodName: ActivateMovements
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &579478746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579478742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 7e93290bc7d63e7459a9fa94658dd71a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3485560793425581823}
+        m_TargetAssemblyTypeName: PlayerMovementControls, Assembly-CSharp
+        m_MethodName: DesativateMovements
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &602622660
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puzzleIndex: 1
+  enteredOnPuzzleEvent: {fileID: 11400000, guid: 974daaf8f525e2d499f4ff88725e08b0, type: 2}
 --- !u!1 &921553446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,8 +1289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24fe6f5eb459674bbfa0d224a93e39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _message: Test
-  _timeToShowTheMessage: 5
+  _message: Nothing usefull here
+  _timeToShowTheMessage: 3
 --- !u!65 &1390121704
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1297,6 +1416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ea4cbd501ca6e408c720aa4f7cb749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitedOfPuzzleEvent: {fileID: 11400000, guid: 56624fb98c945ef4fac6b47dbcea306b, type: 2}
 --- !u!1 &1535982226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,11 +1620,135 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _readIndex: 1
+  enteredOnPuzzleEvent: {fileID: 11400000, guid: 7e93290bc7d63e7459a9fa94658dd71a, type: 2}
 --- !u!1 &1998940915 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3485560794010334936, guid: d2245adf5fb2de7469c62ebae270cbb1, type: 3}
   m_PrefabInstance: {fileID: 3485560793425581822}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1998940916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998940915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0f650a22a6d00a849874f2742c12106f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1998940917}
+        m_TargetAssemblyTypeName: MouseControls, Assembly-CSharp
+        m_MethodName: ActivateMouseControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1998940917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3485560794010334933, guid: d2245adf5fb2de7469c62ebae270cbb1, type: 3}
+  m_PrefabInstance: {fileID: 3485560793425581822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998940915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df9b86150d37aa4c80bc3c441bf564d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1998940918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998940915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 7e93290bc7d63e7459a9fa94658dd71a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1998940917}
+        m_TargetAssemblyTypeName: MouseControls, Assembly-CSharp
+        m_MethodName: DesactivateMouseControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1998940919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998940915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 56624fb98c945ef4fac6b47dbcea306b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1998940917}
+        m_TargetAssemblyTypeName: MouseControls, Assembly-CSharp
+        m_MethodName: ActivateMouseControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1998940920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998940915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 974daaf8f525e2d499f4ff88725e08b0, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1998940917}
+        m_TargetAssemblyTypeName: MouseControls, Assembly-CSharp
+        m_MethodName: DesactivateMouseControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1998940921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1620,6 +1864,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3485560793483219540, guid: d2245adf5fb2de7469c62ebae270cbb1, type: 3}
+      propertyPath: enteredOnPuzzleEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 974daaf8f525e2d499f4ff88725e08b0, type: 2}
     - target: {fileID: 3485560793483219543, guid: d2245adf5fb2de7469c62ebae270cbb1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1674,3 +1922,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2245adf5fb2de7469c62ebae270cbb1, type: 3}
+--- !u!114 &3485560793425581823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3485560793483219540, guid: d2245adf5fb2de7469c62ebae270cbb1, type: 3}
+  m_PrefabInstance: {fileID: 3485560793425581822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579478742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a997532ace219304181cae6bf71eb362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

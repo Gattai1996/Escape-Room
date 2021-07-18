@@ -4,6 +4,7 @@ public class PlayerMovementControls : MonoBehaviour
 {
     private CharacterController characterController;
     private float speed = 5f;
+    private bool hasPuzzleActive;
 
     void Start()
     {
@@ -12,7 +13,10 @@ public class PlayerMovementControls : MonoBehaviour
 
     void Update()
     {
-        HandleMovementControls();
+        if (!hasPuzzleActive)
+        {
+            HandleMovementControls();
+        }
     }
 
     private void HandleMovementControls()
@@ -24,5 +28,15 @@ public class PlayerMovementControls : MonoBehaviour
         movement *= speed * Time.deltaTime;
 
         characterController.Move(movement);
+    }
+
+    public void DesativateMovements()
+    {
+        hasPuzzleActive = true;
+    }
+
+    public void ActivateMovements()
+    {
+        hasPuzzleActive = false;
     }
 }
