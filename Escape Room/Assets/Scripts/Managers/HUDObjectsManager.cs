@@ -33,7 +33,7 @@ public abstract class HUDObjectsManager : MonoBehaviour
 
     private void CheckInput()
     {
-        if (HaveObjectActive && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space)))
+        if (HaveObjectActive && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Q)))
         {
             SetObjectToDesactive();
         }

@@ -1,1 +1,1 @@
-﻿public enum InteractionType { Read, Interact, Puzzle }
+﻿public enum InteractionType { Read, Interact, Puzzle, Pickup, Combinable, Door, Forniture }

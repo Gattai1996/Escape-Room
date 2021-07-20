@@ -4,9 +4,10 @@ using System;
 public class PlayerInteractionControls : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMask;
-    private float interactionDistance = 3f;
+    private float interactionDistance = 5f;
     private Camera _cam;
     private KeyCode interactKey = KeyCode.E;
+    private bool hasHUDObjectActive;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class PlayerInteractionControls : MonoBehaviour
         Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
         RaycastHit raycastHit;
 
-        if (Physics.Raycast(ray, out raycastHit, interactionDistance, layerMask))
+        if (!hasHUDObjectActive && Physics.Raycast(ray, out raycastHit, interactionDistance, layerMask))
         {
             Interactable interactable = raycastHit.collider.GetComponent<Interactable>();
 
@@ -45,7 +46,7 @@ public class PlayerInteractionControls : MonoBehaviour
         {
             case InteractionType.Interact:
                 {
-                    if (Input.GetKeyDown(interactKey))
+                    if (!PickupControls.Singleton.IsHoldingItem && Input.GetKeyDown(interactKey))
                     {
                         interactable.Interact();
                     }
@@ -53,7 +54,7 @@ public class PlayerInteractionControls : MonoBehaviour
                 }
             case InteractionType.Read:
                 {
-                    if (!ReadablesManager.Singleton.HaveObjectActive && Input.GetKeyDown(interactKey))
+                    if (!PickupControls.Singleton.IsHoldingItem && !ReadablesManager.Singleton.HaveObjectActive && Input.GetKeyDown(interactKey))
                     {
                         interactable.Interact();
                     }
@@ -61,7 +62,46 @@ public class PlayerInteractionControls : MonoBehaviour
                 }
             case InteractionType.Puzzle:
                 {
-                    if (!PuzzlesManager.Singleton.HaveObjectActive && Input.GetKeyDown(interactKey))
+                    if (!PickupControls.Singleton.IsHoldingItem && !PuzzlesManager.Singleton.HaveObjectActive && Input.GetKeyDown(interactKey))
+                    {
+                        interactable.Interact();
+                    }
+                    break;
+                }
+            case InteractionType.Pickup:
+                {
+                    if (Input.GetKeyDown(interactKey))
+                    {
+                        interactable.Interact();
+                    }
+                    break;
+                }
+            case InteractionType.Combinable:
+                {
+                    if (Input.GetKeyDown(interactKey))
+                    {
+                        if (PickupControls.Singleton.IsHoldingItem)
+                        {
+                            interactable.Interact();
+                        }
+                        else
+                        {
+                            HUDManager.Singleton.ShowMessageText(interactable.GetComponent<CombinableObject>().ExtraInformation, 3f);
+                        }
+                    }
+                    break;
+                }
+            case InteractionType.Door:
+                {
+                    if (!PickupControls.Singleton.IsHoldingItem && Input.GetKeyDown(interactKey))
+                    {
+                        interactable.Interact();
+                    }
+                    break;
+                }
+            case InteractionType.Forniture:
+                {
+                    if (!PickupControls.Singleton.IsHoldingItem && Input.GetKeyDown(interactKey))
                     {
                         interactable.Interact();
                     }
@@ -74,5 +114,15 @@ public class PlayerInteractionControls : MonoBehaviour
                         );
                 }
         }
+    }
+
+    public void ActivateInteractions()
+    {
+        hasHUDObjectActive = false;
+    }
+
+    public void DesactivateInteractions()
+    {
+        hasHUDObjectActive = true;
     }
 }

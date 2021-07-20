@@ -21,7 +21,10 @@ public class Event : ScriptableObject
     {
         foreach (EventListener eventListener in _eventListeners)
         {
-            eventListener.OnTriggerEvent();
+            if (eventListener)
+            {
+                eventListener.OnTriggerEvent();
+            }
         }
     }
 }
