@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Interaction Text
-  - Message Text
+  - Slide Piece
+  - Reference Point
+  - Slot
   layers:
   - Default
   - TransparentFX

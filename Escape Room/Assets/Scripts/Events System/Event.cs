@@ -9,12 +9,18 @@ public class Event : ScriptableObject
     
     public void Register(EventListener eventListener)
     {
-        _eventListeners.Add(eventListener);
+        if (!_eventListeners.Contains(eventListener))
+        {
+            _eventListeners.Add(eventListener);
+        }
     }
 
     public void Unregister(EventListener eventListener)
     {
-        _eventListeners.Remove(eventListener);
+        if (_eventListeners.Contains(eventListener))
+        {
+            _eventListeners.Remove(eventListener);
+        }
     }
 
     public void TriggerEvent()

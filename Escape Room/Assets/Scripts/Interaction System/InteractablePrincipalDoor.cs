@@ -4,7 +4,11 @@ public class InteractablePrincipalDoor : Interactable
 {
     [SerializeField] private Event _desactivatePlayerControlsEvent;
     [SerializeField] private Event _winEvent;
+    [SerializeField] private AudioClip _openedLockSound;
+    [SerializeField] private AudioClip _doorLockedSound;
+    [SerializeField] private AudioClip _doorOpeningSound;
     private Animator _doorAnimator;
+    private AudioSource _doorAudioSource;
     private int _locksRemaining = 3;
     public int LocksRemaining => _locksRemaining;
 
@@ -17,6 +21,7 @@ public class InteractablePrincipalDoor : Interactable
     private void Start()
     {
         _doorAnimator = GetComponent<Animator>();
+        _doorAudioSource = GetComponent<AudioSource>();
     }
 
     public override void Interact()
@@ -25,6 +30,7 @@ public class InteractablePrincipalDoor : Interactable
         {
             _doorAnimator.SetTrigger("Locked");
             HUDManager.Singleton.ShowMessageText($"The door is firmily locked by {_locksRemaining} locks", 4f);
+            _doorAudioSource.PlayOneShot(_doorLockedSound);
         }
         else
         {
@@ -35,11 +41,13 @@ public class InteractablePrincipalDoor : Interactable
     public void UnlockedLock()
     {
         _locksRemaining--;
+        _doorAudioSource.PlayOneShot(_openedLockSound);
     }
 
     public void TriggerDesactivatePlayerControls()
     {
         _desactivatePlayerControlsEvent.TriggerEvent();
+        _doorAudioSource.PlayOneShot(_doorOpeningSound);
     }
 
     public void TriggerWin()

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class InteractableForniture : Interactable
 {
+    [SerializeField] private AudioClip _openingSound;
+    [SerializeField] private AudioClip _closingSound;
     private Animator _fornitureAnimator;
+    private AudioSource _furnitureAudioSource;
     private bool _isOpened;
     public override InteractionType Type => InteractionType.Forniture;
 
@@ -15,6 +18,7 @@ public class InteractableForniture : Interactable
     private void Start()
     {
         _fornitureAnimator = GetComponent<Animator>();
+        _furnitureAudioSource = GetComponent<AudioSource>();
     }
 
     public override void Interact()
@@ -23,11 +27,13 @@ public class InteractableForniture : Interactable
         {
             _fornitureAnimator.SetTrigger("Opened");
             _isOpened = true;
+            _furnitureAudioSource.PlayOneShot(_openingSound);
         }
         else
         {
             _fornitureAnimator.SetTrigger("Closed");
             _isOpened = false;
+            _furnitureAudioSource.PlayOneShot(_closingSound);
         }
     }
 }
