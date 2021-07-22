@@ -5,12 +5,12 @@ public class GeometricPiece : PuzzlePiece
 {
     [SerializeField] private int _correctIndex;
     [SerializeField] private int _initialIndex;
-    [SerializeField] private Event _movedGeometricPieceEvent;
+    [SerializeField] private Event _movedPasswordPieceEvent;
     private List<GameObject> _imagesList = new List<GameObject>();
 
     public override int InitialIndex { get => _initialIndex; protected set { } }
     public override int CorrectIndex { get => _correctIndex; protected set { } }
-    public override Event MovedPieceEvent => _movedGeometricPieceEvent;
+    public override Event MovedPieceEvent => _movedPasswordPieceEvent;
     public override List<GameObject> PiecesList => _imagesList;
 
     private void Start()

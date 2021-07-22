@@ -5,36 +5,16 @@ public class PuzzlesManager : HUDObjectsManager
     [SerializeField] private Event _exitedOfPuzzleEvent;
     public static PuzzlesManager Singleton { get; private set; }
     protected override Event OnDesactivateEvent => _exitedOfPuzzleEvent;
-    private GameObject _geometricFormsPuzzle, _sequencePuzzle, _passwordPuzzle, _slidePuzzle;
-
     private void Start()
     {
         Singleton = this;
         SetupList();
-        _geometricFormsPuzzle = GameObject.Find("Geometric Forms Puzzle");
-        _sequencePuzzle = GameObject.Find("Sequence Puzzle");
-        _passwordPuzzle = GameObject.Find("Password Puzzle");
     }
 
-    public void DestroyGeometricFormsPuzzle()
+    public void DestroyInteractablePuzzle(InteractablePuzzle interactablePuzzle)  
     {
-        Destroy(_geometricFormsPuzzle);
+        Destroy(interactablePuzzle.gameObject, 0.1f); // Destroy with delay of 0.1f, because can cause a Exception on
+                                                      // the Event Listeners of Scripable Object Event System
         SetObjectToDesactive();
-    }
-
-    public void DestroySequencePuzzle()
-    {
-        Destroy(_sequencePuzzle);
-    }
-
-    public void DestroyPasswordPuzzle()
-    {
-        Destroy(_passwordPuzzle);
-        SetObjectToDesactive();
-    }
-
-    public void DestroySlidePuzzle()
-    {
-        Destroy(_slidePuzzle);
     }
 }

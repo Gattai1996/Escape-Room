@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlidePuzzle : MonoBehaviour
+public class SlidePuzzle : Puzzle
 {
     private List<SlidePiece> imagesList;
 
@@ -20,13 +19,12 @@ public class SlidePuzzle : MonoBehaviour
     {
         for (int i = 0; i < imagesList.Count; i++)
         {
-            if (imagesList[i].transform.position != imagesList[i].CorrectPosition)
+            if (Vector3.Distance(imagesList[i].transform.position, imagesList[i].CorrectPosition) > 10f)
             {
                 return;
             }
         }
 
-        // Win
-        Debug.Log("Puzzle completed");
+        PuzzleCompleted();
     }
 }

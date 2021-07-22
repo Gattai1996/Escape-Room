@@ -7,7 +7,7 @@ public abstract class PuzzlePiece : MonoBehaviour, IPointerClickHandler
     public abstract int InitialIndex { get; protected set; }
     public int CurrentIndex { get; private set; }
     public abstract int CorrectIndex { get; protected set; }
-    public bool IsOnCorrectIndex { get; private set; }
+    public bool IsOnCorrectCondition { get; private set; }
     public abstract Event MovedPieceEvent { get; }
     public abstract List<GameObject> PiecesList { get; }
 
@@ -26,6 +26,6 @@ public abstract class PuzzlePiece : MonoBehaviour, IPointerClickHandler
         }
 
         PiecesList[index].SetActive(true);
-        IsOnCorrectIndex = index == CorrectIndex;
+        IsOnCorrectCondition = index == CorrectIndex;
     }
 }

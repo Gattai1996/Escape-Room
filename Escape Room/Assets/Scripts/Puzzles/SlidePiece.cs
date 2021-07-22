@@ -11,76 +11,23 @@ public class SlidePiece : MonoBehaviour, IPointerClickHandler
     private bool moveImage;
     private Vector3 targetPosition;
     [SerializeField] private Event _movedSlidePieceEvent;
+    [SerializeField] private int _pieceNumber;
+    [SerializeField] private int _initialPosition;
     public Vector3 CorrectPosition { get; private set; }
-
-    private void Awake()
-    {
-        slot = GameObject.FindWithTag("Slot").transform;
-    }
 
     private void Start()
     {
-        UpdateCorrectPosition();
-    }
-
-    private void UpdateCorrectPosition()
-    {
-        switch (gameObject.name)
-        {
-            case "Image (1)":
-                {
-                    CorrectPosition = GameObject.Find("Reference Point (1)").transform.position;
-                    break;
-                }
-            case "Image (2)":
-                {
-                    CorrectPosition = GameObject.Find("Reference Point (2)").transform.position;
-                    break;
-                }
-            case "Image (3)":
-                {
-                    CorrectPosition = GameObject.Find("Reference Point (3)").transform.position;
-                    break;
-                }
-            case "Image (4)":
-                {
-                    CorrectPosition = GameObject.Find("Reference Point (4)").transform.position;
-                    break;
-                }
-            case "Image (5)":
-                {
-                    CorrectPosition = GameObject.Find("Reference Point (5)").transform.position;
-                    break;
-                }
-            case "Image (6)":
-                {
-                    CorrectPosition = GameObject.Find("Reference Point (6)").transform.position;
-                    break;
-                }
-            case "Image (7)":
-                {
-                    CorrectPosition = GameObject.Find("Reference Point (7)").transform.position;
-                    break;
-                }
-            case "Image (8)":
-                {
-                    CorrectPosition = GameObject.Find("Reference Point (8)").transform.position;
-                    break;
-                }
-        }
+        slot = GameObject.FindWithTag("Slot").transform;
+        CorrectPosition = GameObject.Find($"Reference Point ({_pieceNumber})").transform.position;
+        transform.position = GameObject.Find($"Reference Point ({_initialPosition})").transform.position;
+        Vector2 referencePoint1 = GameObject.Find("Reference Point (1)").transform.position;
+        Vector2 referencePoint2 = GameObject.Find("Reference Point (2)").transform.position;
+        distance = Mathf.CeilToInt(Vector2.Distance(referencePoint1, referencePoint2));
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        UpdateCorrectPosition();
         CheckDistance();
-    }
-
-    private void UpdateDistanceReference()
-    {
-        Vector2 referencePoint1 = GameObject.Find("Reference Point (1)").transform.position;
-        Vector2 referencePoint2 = GameObject.Find("Reference Point (2)").transform.position;
-        distance = Mathf.CeilToInt(Vector2.Distance(referencePoint1, referencePoint2));
     }
 
     private void CheckDistance()
@@ -96,7 +43,6 @@ public class SlidePiece : MonoBehaviour, IPointerClickHandler
 
     private bool IsCloseToSlot()
     {
-        UpdateDistanceReference();
         return Vector3.Distance(transform.position, slot.position) - distance < 10f;
     }
 

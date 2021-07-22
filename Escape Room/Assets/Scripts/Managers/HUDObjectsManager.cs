@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,6 +42,7 @@ public abstract class HUDObjectsManager : MonoBehaviour
 
     public void SetObjectToActive(int objectIndex)
     {
+        HUDManager.Singleton.ShowBackIndicatorText();
         GameObject objectToActive = _objectsList[objectIndex - 1];
         objectToActive.SetActive(true);
         _activeObject = objectToActive;
@@ -48,8 +50,20 @@ public abstract class HUDObjectsManager : MonoBehaviour
 
     public virtual void SetObjectToDesactive()
     {
-        _activeObject.SetActive(false);
-        _activeObject = null;
+        StartCoroutine(SetObjectToDesactiveCoroutine());
+    }
+
+    private IEnumerator SetObjectToDesactiveCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        if (_activeObject != null)
+        {
+            _activeObject.SetActive(false);
+            _activeObject = null;
+        }
+
         OnDesactivateEvent.TriggerEvent();
+        HUDManager.Singleton.HideBackIndicatorText();
     }
 }

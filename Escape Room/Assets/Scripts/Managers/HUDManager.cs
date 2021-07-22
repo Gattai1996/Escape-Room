@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class HUDManager : MonoBehaviour
 {
     [SerializeField] private Event _gameStartEvent;
+    [SerializeField] private Event _desactivatePlayerControlsEvent;
     public static HUDManager Singleton { get; private set; }
     private TextMeshProUGUI _interactionText;
     private TextMeshProUGUI _messageText;
     private Image _pointer;
-    private GameObject _winScreen, _gameOverScreen, _timer;
+    private GameObject _winScreen, _gameOverScreen, _timer, _backIndicatorText;
     private Color pointerNormalColor = new Color(255, 255, 255, 255);
     private Color pointerHoverColor = new Color(0, 200, 0, 255);
 
@@ -24,9 +25,12 @@ public class HUDManager : MonoBehaviour
         _winScreen = transform.Find("Win Screen").gameObject;
         _gameOverScreen = transform.Find("Game Over Screen").gameObject;
         _timer = transform.Find("Timer").gameObject;
+        _backIndicatorText = transform.Find("Back Indicator Text").gameObject;
         _pointer.gameObject.SetActive(false);
+        _timer.SetActive(false);
         _winScreen.SetActive(false);
         _gameOverScreen.SetActive(false);
+        _backIndicatorText.SetActive(false);
         HideAllTexts();
         Time.timeScale = 1f;
     }
@@ -34,6 +38,7 @@ public class HUDManager : MonoBehaviour
     public void GameStart()
     {
         _pointer.gameObject.SetActive(true);
+        _timer.SetActive(true);
         _gameStartEvent.TriggerEvent();
     }
 
@@ -53,6 +58,16 @@ public class HUDManager : MonoBehaviour
     {
         _messageText.text = message;
         StartCoroutine(HideMessageCoroutine(timeToShow));
+    }
+
+    public void ShowBackIndicatorText()
+    {
+        _backIndicatorText.SetActive(true);
+    }
+
+    public void HideBackIndicatorText()
+    {
+        _backIndicatorText.SetActive(false);
     }
 
     public void HideMessageText()
@@ -77,18 +92,29 @@ public class HUDManager : MonoBehaviour
         HideAllTexts();
         _pointer.transform.gameObject.SetActive(false);
         _timer.SetActive(false);
+        _backIndicatorText.SetActive(false);
+    }
+
+    public void HidePuzzleAndReadable()
+    {
+        foreach (HUDObjectsManager hudObjects in FindObjectsOfType<HUDObjectsManager>())
+        {
+            hudObjects.SetObjectToDesactive();
+        }
     }
 
     public void Win()
     {
-        HideAllTexts();
+        HideAllHUDObjects();
         _winScreen.SetActive(true);
+        _desactivatePlayerControlsEvent.TriggerEvent();
     }
 
     public void GameOver()
     {
         HideAllTexts();
         _gameOverScreen.SetActive(true);
+        _desactivatePlayerControlsEvent.TriggerEvent();
         Time.timeScale = 0f;
     }
 

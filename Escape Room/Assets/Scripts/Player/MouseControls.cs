@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MouseControls : MonoBehaviour
 {
-    private float _mouseSensitivity = 300f;
+    private float _mouseSensitivity = 100f;
     public float MouseSensitivity { get => _mouseSensitivity; private set { } }
     private Transform _playerBody;
     private float _xRotation;

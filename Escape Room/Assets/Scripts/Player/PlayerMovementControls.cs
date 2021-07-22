@@ -5,7 +5,7 @@ public class PlayerMovementControls : MonoBehaviour
 {
     private CharacterController _characterController;
     private float _speed = 5f;
-    private bool _hasPuzzleActive;
+    private bool _hasHUDObjectActive;
     private bool _isWalking;
     private bool _isPlayingSound;
     private Animator _animator;
@@ -18,7 +18,7 @@ public class PlayerMovementControls : MonoBehaviour
 
     void Update()
     {
-        if (!_hasPuzzleActive)
+        if (!_hasHUDObjectActive)
         {
             HandleMovementControls();
         }
@@ -34,12 +34,12 @@ public class PlayerMovementControls : MonoBehaviour
 
         _characterController.Move(movement);
 
-        if (_characterController.velocity != Vector3.zero && !_isWalking &&!_isPlayingSound)
+        if (_characterController.velocity != Vector3.zero && !_isWalking && !_isPlayingSound && !_hasHUDObjectActive)
         {
             _isWalking = true;
             InvokeRepeating(nameof (PlayWalkSoundCoroutine), 0.5f, 0.5f);
         }
-        else if (_characterController.velocity == Vector3.zero)
+        else if (_characterController.velocity == Vector3.zero || _hasHUDObjectActive)
         {
             _isWalking = false;
             CancelInvoke(nameof(PlayWalkSoundCoroutine));
@@ -60,12 +60,13 @@ public class PlayerMovementControls : MonoBehaviour
 
     public void DesativateMovements()
     {
-        _hasPuzzleActive = true;
+        _hasHUDObjectActive = true;
+        CancelInvoke(nameof(PlayWalkSoundCoroutine));
     }
 
     public void ActivateMovements()
     {
-        _hasPuzzleActive = false;
+        _hasHUDObjectActive = false;
     }
 
     public void DesactivateAnimator()

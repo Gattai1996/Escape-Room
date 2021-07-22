@@ -1330,13 +1330,15 @@ GameObject:
   - component: {fileID: 4395609572895914194}
   - component: {fileID: 4395609572895914197}
   - component: {fileID: 919132147768589317}
+  - component: {fileID: 1948045771}
+  - component: {fileID: 1948045774}
   m_Layer: 0
   m_Name: Killer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4218446660009943040
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,7 +1363,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3585215289725500090}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: a076b144def00cf48b9b9ba28ed332c6, type: 2}
   m_InitialState: 1
@@ -1387,7 +1389,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3585215289725500090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: a3248bf7116d9244493c3dae37a92d54, type: 3}
   m_Controller: {fileID: 9100000, guid: 946e0c902c242e047afb1439c470fb34, type: 2}
   m_CullingMode: 0
@@ -1435,6 +1437,18 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: MouseControls, Assembly-CSharp
+          m_MethodName: DesactivateMouseControls
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PlayerInteractionControls, Assembly-CSharp
           m_MethodName: DesactivateInteractions
           m_Mode: 1
@@ -1447,8 +1461,20 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MouseControls, Assembly-CSharp
-          m_MethodName: DesactivateMouseControls
+          m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
+          m_MethodName: HideAllHUDObjects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
+          m_MethodName: HidePuzzleAndReadable
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1472,6 +1498,46 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1948045771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3585215289725500090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93592668e92554b9decbec7724b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: b4ec72584372e0e41b72c72d29af6f93, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1948045774}
+        m_TargetAssemblyTypeName: KillerManager, Assembly-CSharp
+        m_MethodName: SetActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1948045774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3585215289725500090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27deebc8683344441b5b244c81f3b347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3609778726322755145
 GameObject:
   m_ObjectHideFlags: 0

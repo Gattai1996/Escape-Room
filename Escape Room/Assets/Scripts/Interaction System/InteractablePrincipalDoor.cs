@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class InteractablePrincipalDoor : Interactable
 {
-    [SerializeField] private Event _desactivatePlayerControlsEvent;
     [SerializeField] private Event _winEvent;
     [SerializeField] private AudioClip _openedLockSound;
     [SerializeField] private AudioClip _doorLockedSound;
@@ -44,9 +43,8 @@ public class InteractablePrincipalDoor : Interactable
         _doorAudioSource.PlayOneShot(_openedLockSound);
     }
 
-    public void TriggerDesactivatePlayerControls()
+    public void OpenedDoor()
     {
-        _desactivatePlayerControlsEvent.TriggerEvent();
         _doorAudioSource.PlayOneShot(_doorOpeningSound);
     }
 

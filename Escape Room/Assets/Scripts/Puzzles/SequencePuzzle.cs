@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SequencePuzzle : MonoBehaviour
+public class SequencePuzzle : Puzzle
 {
     [SerializeField] private int[] _correctSequence;
-    private int[] _trySequence = new int[10];
+    [SerializeField] private GameObject _spawnObject;
+    private int[] _trySequence;
     private int _actualTryIndex;
     private List<Image> _imagesList = new List<Image>();
     private Color _buttonNormalColor = new Color(255, 255, 255, 255);
     private Color _buttonCorrectColor = new Color(0, 200, 0, 255);
     private Color _buttonWrongColor = new Color(200, 0, 0, 255);
 
-    private void Start()
+    private void Awake()
+    {
+        _spawnObject.SetActive(false);
+    }
+
+    protected override void InitPuzzlePiecesList()
     {
         Transform background = transform.GetChild(0);
 
@@ -21,6 +27,8 @@ public class SequencePuzzle : MonoBehaviour
         {
             _imagesList.Add(background.GetChild(i).GetComponent<Image>());
         }
+
+        _trySequence = new int[background.childCount];
     }
 
     public void TryNumber(int number)
@@ -29,7 +37,7 @@ public class SequencePuzzle : MonoBehaviour
         {
             _trySequence[_actualTryIndex] = number;
             SetButtonToCorrectColor(number, true);
-            CheckSequence();
+            CheckPuzzle();
             _actualTryIndex++;
         }
         else
@@ -40,19 +48,18 @@ public class SequencePuzzle : MonoBehaviour
         }
     }
 
-    private void CheckSequence()
+    protected override bool CheckAllPieces()
     {
         for (int i = 0; i < _correctSequence.Length; i++)
         {
             if (_trySequence[i] != _correctSequence[i])
             {
-                return;
+                return false;
             }
         }
 
-        HUDManager.Singleton.ShowMessageText("Puzzle completed", 3f);
-        PuzzlesManager.Singleton.SetObjectToDesactive();
-        PuzzlesManager.Singleton.DestroySequencePuzzle();
+        _spawnObject.SetActive(true);
+        return true;
     }
 
     private void SetButtonToCorrectColor(int number, bool isNumberCorrect)
