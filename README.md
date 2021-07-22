@@ -27,7 +27,7 @@ Features:
 Resolução dos puzzles:
 - Puzzle 1 (Geometric Forms Puzzle, encontra-se em uma das paredes) - Esse é o único puzzle opcional do jogo e só revela uma parte da história quando é completado. Para completar o puzzle, clique nas imagens para alterá-las, de modo que formem as formas geométricas nessa ordem: Quadrado, Losango, Triângulo e Círculo.
 - Puzzle 2 (Sequence Puzzle, encontra-se em cima do tambor ao lado da porta de saída) - Para completar o puzzle, clique nos botões nessa ordem: 4, 7, 6, 8, 3, 10, 2, 5, 9 e 1.
-- Puzzle 3 (Password Puzzle, encontra-se em um dos cadeados da porta de saída) - Para completar o puzzle, clique nos botões para inserir a senha que é encontrada em uma das cartas de Alice (personagem do jogo), de modo que os númros fiquem na seguinte ordem: 963.
+- Puzzle 3 (Password Puzzle, encontra-se em um dos cadeados da porta de saída) - Para completar o puzzle, clique nos botões para inserir a senha que é encontrada em uma das cartas de Alice (personagem do jogo), de modo que os números fiquem na seguinte ordem: 963.
 - Puzzle 4 (Slide Puzzle, encontrado em uma das paredes) - Alinhe as peças em ordem numérica para completar o puzzle, para completar facilmente, clique nas peças nessa ordem: 8, 7, 4, 5, 1, 2, 3, 6, 5, 4, 7 e 8.
 
 Condição de vitória:
