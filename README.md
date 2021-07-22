@@ -7,6 +7,9 @@
 Como jogar:
 - Execute o arquivo "Escape Room.exe" que se encontra na pasta "Build" em um computador Windows.
 
+Como abrir o código fonte:
+- Utilizar a versão da Unity 2020.3.14 (LTS)
+
 Comandos:
 - Andar: WASD
 - Virar a câmera: Movimento do Mouse
